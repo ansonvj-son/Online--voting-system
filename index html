@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Voting</title>
+</head>
+<body>
+
+<h2>Online Voting System (Demo)</h2>
+
+<form id="voteForm">
+  <input type="radio" name="vote" value="A" required> Candidate A <br>
+  <input type="radio" name="vote" value="B"> Candidate B <br>
+  <input type="radio" name="vote" value="C"> Candidate C <br><br>
+
+  <button type="submit">Vote</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+if(localStorage.getItem("voted")){
+  document.getElementById("voteForm").style.display="none";
+  document.getElementById("msg").innerHTML="You have already voted.";
+}
+
+document.getElementById("voteForm").onsubmit = function(){
+  let v = document.querySelector('input[name="vote"]:checked').value;
+  localStorage.setItem("voted", v);
+
+  let count = localStorage.getItem(v) || 0;
+  localStorage.setItem(v, Number(count)+1);
+
+  document.getElementById("msg").innerHTML="Thank you for voting!";
+  document.getElementById("voteForm").style.display="none";
+}
+</script>
+
+<a href="result.html">View Results</a>
+
+</body>
+</html>
