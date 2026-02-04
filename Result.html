@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voting Results</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>Voting Results</h2>
+
+<p>Candidate A: <span id="a">0</span></p>
+<p>Candidate B: <span id="b">0</span></p>
+<p>Candidate C: <span id="c">0</span></p>
+
+<script>
+  document.getElementById("a").innerText = localStorage.getItem("A") || 0;
+  document.getElementById("b").innerText = localStorage.getItem("B") || 0;
+  document.getElementById("c").innerText = localStorage.getItem("C") || 0;
+</script>
+
+</body>
+  </html>
